@@ -10,9 +10,11 @@ app.use('/js', express.static(path.join(__dirname, '/node_modules/', 'bootstrap/
 app.use('/js', express.static(path.join(__dirname, '/node_modules/', 'jquery/dist/')));
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '/views/index.html'))
+  res.sendFile(path.join(__dirname, '/views/index.html'))
 });
 
 app.listen(3000, () => {
-    console.log('Listening on port 3000');
+  // eslint-disable-next-line no-console
+  console.log('Listening on port 3000');
+  console.log('Listening on port 3000');
 });
