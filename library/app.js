@@ -1,9 +1,10 @@
 var express = require("express");
+var path = require("path");
 
 var app = express();
 
 app.get("/", (req, res) => {
-    res.send("Hello from my library app");
+    res.sendFile(path.join(__dirname,"/views/index.html"))
 });
 
 app.listen(3000, () => {
