@@ -26,7 +26,12 @@ app.set("view engine", "EJS");
 
 // It serves the index file
 app.get("/", (req, res) => {
-  res.render("index");
+  res.render("index", {
+    navs: [
+      { link: "/books", title: "books" },
+      { link: "/authors", title: "authors" }
+    ]
+  });
 });
 
 // It sets up the port for the web app
