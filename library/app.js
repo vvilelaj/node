@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("path");
+const booksRouter = require("./src/routing/booksRouter");
 
 const app = express();
 
@@ -21,17 +22,21 @@ app.use(
 );
 
 // It sets up the views folder and the view engine
-app.set("views", "./views");
+app.set("views", "./src/views");
 app.set("view engine", "EJS");
 
+const pageModel = {
+  navs: [
+    { link: "/books", title: "books" },
+    { link: "/authors", title: "authors" }
+  ]
+};
+
+// It sets up the books router
+app.use("/books", booksRouter(pageModel));
 // It serves the index file
 app.get("/", (req, res) => {
-  res.render("index", {
-    navs: [
-      { link: "/books", title: "books" },
-      { link: "/authors", title: "authors" }
-    ]
-  });
+  res.render("indexView", pageModel);
 });
 
 // It sets up the port for the web app
