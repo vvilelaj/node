@@ -4,7 +4,7 @@ const path = require("path");
 const app = express();
 
 // It sets up a public folder
-app.use("/public", express.static(__dirname + "/public"));
+app.use("/public", express.static(path.join(__dirname, "/public")));
 
 // It creates virtual folders aiming to files inside folder' packages
 app.use(
