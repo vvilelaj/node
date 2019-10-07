@@ -1,5 +1,7 @@
 const express = require("express");
 const path = require("path");
+//
+const HomeRouter = require("./src/routers/home-router");
 const booksRouter = require("./src/routing/booksRouter");
 
 const app = express();
@@ -35,9 +37,7 @@ const pageModel = {
 // It sets up the books router
 app.use("/books", booksRouter(pageModel));
 // It serves the index file
-app.get("/", (req, res) => {
-  res.render("home/indexView", pageModel);
-});
+app.use("/", new HomeRouter().getRouter());
 
 // It sets up the port for the web app
 app.listen(3000, () => {
