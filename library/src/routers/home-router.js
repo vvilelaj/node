@@ -1,18 +1,13 @@
 const express = require("express");
-
-const pageModel = {
-  navs: [
-    { link: "/books", title: "books" },
-    { link: "/authors", title: "authors" }
-  ]
-};
+const HomeController = require("./../controllers/home-controller");
+const MenuService = require("./../services/menu-service");
 
 class HomeRouter {
   constructor() {
     this.router = express.Router();
-
     this.router.route("/").get((req, res) => {
-      res.render("home/indexView", pageModel);
+      const menuService = new MenuService();
+      new HomeController(menuService).indexGet(req, res);
     });
   }
 
