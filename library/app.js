@@ -36,7 +36,7 @@ const pageModel = {
 app.use("/books", booksRouter(pageModel));
 // It serves the index file
 app.get("/", (req, res) => {
-  res.render("indexView", pageModel);
+  res.render("home/indexView", pageModel);
 });
 
 // It sets up the port for the web app
