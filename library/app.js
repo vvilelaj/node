@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 //
 const HomeRouter = require("./src/routers/home-router");
+const AuthRouter = require("./src/routers/auth-router");
 
 const app = express();
 
@@ -26,8 +27,9 @@ app.use(
 app.set("views", "./src/views");
 app.set("view engine", "EJS");
 
-// It serves the index file
+// It sets up routers
 app.use("/", new HomeRouter().getRouter());
+app.use("/auth", new AuthRouter().getRouter());
 
 // It sets up the port for the web app
 app.listen(3000, () => {
