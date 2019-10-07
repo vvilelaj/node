@@ -2,7 +2,6 @@ const express = require("express");
 const path = require("path");
 //
 const HomeRouter = require("./src/routers/home-router");
-const booksRouter = require("./src/routing/booksRouter");
 
 const app = express();
 
@@ -27,15 +26,6 @@ app.use(
 app.set("views", "./src/views");
 app.set("view engine", "EJS");
 
-const pageModel = {
-  navs: [
-    { link: "/books", title: "books" },
-    { link: "/authors", title: "authors" }
-  ]
-};
-
-// It sets up the books router
-app.use("/books", booksRouter(pageModel));
 // It serves the index file
 app.use("/", new HomeRouter().getRouter());
 
