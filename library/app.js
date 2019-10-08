@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("path");
+const bodyParser = require("body-parser");
 //
 const HomeRouter = require("./src/routers/home-router");
 const AuthRouter = require("./src/routers/auth-router");
@@ -26,6 +27,11 @@ app.use(
 // It sets up the views folder and the view engine
 app.set("views", "./src/views");
 app.set("view engine", "EJS");
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // It sets up routers
 app.use("/", new HomeRouter().getRouter());
