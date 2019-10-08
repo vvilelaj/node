@@ -13,7 +13,7 @@ class MenuService {
   getMenus() {
     const menus = [];
     menus.push(new Menu("Sign Up", "/auth/signUp"));
-    menus.push(new Menu("Sign Ip", "/auth/signIn"));
+    menus.push(new Menu("Sign In", "/auth/signIn"));
     return menus;
   }
 }

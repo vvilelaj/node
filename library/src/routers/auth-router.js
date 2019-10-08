@@ -7,6 +7,9 @@ class AuthRouter {
     this.router.route("/signUp").get((req, res) => {
       new AuthController().signUpGet(req, res);
     });
+    this.router.route("/signIn").get((req, res) => {
+      new AuthController().signInGet(req, res);
+    });
   }
 
   getRouter() {
