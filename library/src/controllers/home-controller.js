@@ -4,7 +4,7 @@ class HomeController {
   }
 
   indexGet(req, res) {
-    res.render("home/index-view");
+    res.render("home/index-view", { menus: this.menuService.getMenus() });
   }
 }
 
